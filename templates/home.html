@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+<br>
+<div class="card" style="background: transparent; padding: 20px;">
+    <div class="card-body" style="margin-left: 20px; margin-right: 20px;">
+        <h1>Hello!</h1>
+        <p>This is a dashboard where you can summarize an ebook or a text depending on your choice.
+            Want to start summarizing?  Click on the button to start! :)
+        </p>
+        <button  onclick="location.href='/summarize'" type="button" class="btn btn-secondary">Summarize</button>
+
+    </div>
+</div>
+<br>
+
+{% endblock content %}

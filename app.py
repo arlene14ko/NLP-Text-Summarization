@@ -1,48 +1,47 @@
 from flask import Flask, render_template, request, redirect
-from features import Features
-import pandas as pd
+import requests
+from features import Request
+
 
 app = Flask(__name__)
 
 
-@app.route("/", methods=["GET", "POST"])
-def index():
+@app.route("/home")
+@app.route("/")
+def home():
+    return render_template("home.html")
+
+
+@app.route("/summarize", methods=["GET", "POST"])
+def summarize():
     if request.method == "GET":
-        return render_template("index.html")
+        return render_template("summarize.html")
 
     if request.method == "POST":
-        """
-        if "file" not in request.files:
+
+        if "text" not in request.form and "link" not in request.form:
             return redirect(request.url)
 
-        if "machine_type" not in request.form:
+        text = request.form.get("text")
+        print(f"Text Input: {text}")
+        link = request.form.get("link")
+        print(f"Link Input: {link}")
+
+        if text == "" and link == "":
             return redirect(request.url)
 
-        file = request.files["file"]
-        print(f"File: {file}")
-        machine = request.form.get("machine_type")
-        print(f"Machine Type: {machine}")
-        if file.filename == "":
-            return redirect(request.url)
-        if machine == "":
-            return redirect(request.url)
+        elif text:
+            summary = Request.summarize(text)
+            summ = summary[0]["summary_text"]
+            return render_template("summary.html", summary=summ)
 
-        if file:
-            data = Features.get_features(file)
-            df = pd.DataFrame(data, index=[0])
-            model = Features.model_type(machine)
-            prediction = Features.predict_data(df, model)
+        elif link:
+            print(f"Link Input: {link}")
+            summary = Request.request(link)
+            return render_template("summary.html", summary=summary)
 
-            if prediction == 1:
-                print("Machine is Abnormal")
-                output = f"Machine {machine}: {file.filename} is Abnormal."
-            elif prediction == 0:
-                print("Machine is Normal")
-                output = f"Machine {machine}: {file.filename} is Normal."
-
-            return render_template("index.html", prediction=output)
-            """
-        return render_template("index.html")
+        else:
+            return render_template("summarize.html")
 
 
 if __name__ == "__main__":

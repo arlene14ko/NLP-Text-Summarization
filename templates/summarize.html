@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card" style="background: transparent; padding: 20px;">
+    <div class="card-body" style="margin-left: 20px; margin-right: 20px;">
+
+        <div class="bs-example">
+            <ul class="nav nav-tabs" >
+                <li class="nav-item">
+                    <a href="#search" style="color: gray;" class="nav-link active" data-toggle="tab">Search</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#upload" style="color: gray;" class="nav-link" data-toggle="tab">Upload</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#text" style="color: gray;" class="nav-link" data-toggle="tab">Text</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#question"  style="color: gray;" class="nav-link" data-toggle="tab">Question</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="search">
+                    <br>
+                    <h4 class="mt-2">Search an ebook, or link</h4>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Example textarea</label>
+                            <input name="link" class="form-control" type="text" placeholder="Default input">
+                        </div>
+                        <button type="submit" class="btn btn-secondary">Summarize</button>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="upload">
+                    <p></p>
+                    <h4 class="mt-2">Upload tab content</h4>
+                    <p></p>
+                    <div class="col d-flex justify-content-center">
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="formFileSm" class="form-label">Choose the book file: </label>
+                                <input name="file" class="form-control form-control-sm" id="formFileSm" type="file" style="
+                                          border: 1px solid whitesmoke;
+                                          height: 34px;
+                                          background-color: transparent;">
+                            </div>
+                            <button type="submit" class="btn btn-secondary">Summarize</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="text">
+                    <br>
+                    <h4 class="mt-2">Text tab content</h4>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Example textarea</label>
+                            <textarea name="text" class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-secondary">Summarize</button>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="question">
+                    <br>
+                    <h4 class="mt-2">Question tab content</h4>
+                    <p>Donec vel placerat quam, ut euismod risus. Sed a mi suscipit, elementum sem a, hendrerit velit.
+                        Donec at erat
+                        magna. Sed dignissim orci nec eleifend egestas. Donec eget mi consequat massa vestibulum
+                        laoreet. Mauris et
+                        ultrices nulla, malesuada volutpat ante. Fusce ut orci lorem. Donec molestie libero in tempus
+                        imperdiet. Cum
+                        sociis natoque penatibus et magnis.</p>
+
+                        <button type="submit" class="btn btn-secondary">Summarize</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
