@@ -21,15 +21,16 @@ def summarize():
 
         if (
             "text" not in request.form
-            and "link" not in request.form
+            and "article" not in request.form
             and "file" not in request.files
+            and "book" not in request.files
         ):
             return redirect(request.url)
 
         text = request.form.get("text")
         print(f"Text Input: {text}")
-        link = request.form.get("link")
-        print(f"Link Input: {link}")
+        article = request.form.get("article")
+        print(f"Link Input: {article}")
         file = request.files["file"]
         print(f"File Input: {file}")
 
@@ -39,15 +40,24 @@ def summarize():
         elif text:
             summary = Request.summarize(text)
             summ = summary[0]["summary_text"]
-            return render_template("summary.html", summary=summ)
+            clean = ".".join(summ.split(" ."))
+            return render_template("summary.html", summary=clean)
 
-        elif link:
-            summary = Request.request(link)
-            return render_template("summary.html", summary=summary)
+        elif article:
+            summary = Request.request(article)
+            clean = ".".join(summary.split(" ."))
+            return render_template("summary.html", summary=clean)
 
         elif file:
-            summary = Request.file_read(file)
-            return render_template("summary.html", summary=summary)
+            txt_file = file.read()
+            txt = txt_file.decode("utf-8")
+            print(f" File Type: {type(txt_file)}")
+            print(f" Txt Type: {type(txt_file)}")
+            summary = Request.summarize(txt)
+            summ = summary[0]["summary_text"]
+            clean = ".".join(summ.split(" ."))
+            return render_template("summary.html", summary=clean)
+
         else:
             return render_template("summarize.html")
 

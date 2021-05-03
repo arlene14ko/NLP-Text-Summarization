@@ -43,7 +43,6 @@ class Request:
         return summary
 
     def normalize(text):
-
         # removes unnecessary spaces
         norm_text = []
         for token in text:
@@ -59,10 +58,7 @@ class Request:
 
         return normal
 
-    def file_read(file):
-        # Open and read the article
-        f = open(file, "r", encoding="utf8")
-        to_tokenize = f.read()
-        summary = Request.summarize(to_tokenize)
-        # Return summarized text
-        return summary
+    def clean(text):
+        clean = ".".join(text.split(" ."))
+        return clean
+

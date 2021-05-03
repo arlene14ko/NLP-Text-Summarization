@@ -9,6 +9,9 @@
                     <a href="#search" style="color: gray;" class="nav-link active" data-toggle="tab">Search</a>
                 </li>
                 <li class="nav-item">
+                    <a href="#article" style="color: gray;" class="nav-link active" data-toggle="tab">Article</a>
+                </li>
+                <li class="nav-item">
                     <a href="#upload" style="color: gray;" class="nav-link" data-toggle="tab">Upload</a>
                 </li>
                 <li class="nav-item">
@@ -25,7 +28,18 @@
                     <form action="" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Example textarea</label>
-                            <input name="link" class="form-control" type="text" placeholder="Default input">
+                            <input name="book" class="form-control" type="text" placeholder="Default input">
+                        </div>
+                        <button type="submit" class="btn btn-secondary">Summarize</button>
+                    </form>
+                </div>
+                <div class="tab-pane fade show active" id="search">
+                    <br>
+                    <h4 class="mt-2">Summarize an Article</h4>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Example textarea</label>
+                            <input name="article" class="form-control" type="text" placeholder="Default input">
                         </div>
                         <button type="submit" class="btn btn-secondary">Summarize</button>
                     </form>
