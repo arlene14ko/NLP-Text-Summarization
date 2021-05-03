@@ -41,3 +41,28 @@ class Request:
         res = Request.summarize(chunks)
         summary = " ".join([summ["summary_text"] for summ in res])
         return summary
+
+    def normalize(text):
+
+        # removes unnecessary spaces
+        norm_text = []
+        for token in text:
+            if not token.is_space:
+                norm_text.append(str(token))
+        normal = " ".join(norm_text)
+
+        # removes space between a dot (.) and capitalizing the first letter
+        norm = normal.split(" .")
+        normal = ".".join(normal.split(" ."))
+        normal = ",".join(normal.split(" ,"))
+        normal = "'".join(normal.split(" '"))
+
+        return normal
+
+    def file_read(file):
+        # Open and read the article
+        f = open(file, "r", encoding="utf8")
+        to_tokenize = f.read()
+        summary = Request.summarize(to_tokenize)
+        # Return summarized text
+        return summary
