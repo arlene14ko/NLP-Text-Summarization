@@ -3,4 +3,6 @@ gunicorn==20.1.0
 beautifulsoup4==4.9.3
 Flask==1.1.2
 requests==2.25.1
-tensorflow==2.5.0rc0
+torchvision==0.9.1
+transformers==4.5.1
+torch==1.8.1
