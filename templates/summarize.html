@@ -1,15 +1,13 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class="card" style="background: transparent; padding: 20px;">
-    <div class="card-body" style="margin-left: 20px; margin-right: 20px;">
+<div class="card" style="background: transparent; padding: 20px;  
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    <div class="card-body" style="margin-left: 20px; margin-right: 20px; ">
 
         <div class="bs-example">
             <ul class="nav nav-tabs" >
                 <li class="nav-item">
-                    <a href="#search" style="color: gray;" class="nav-link active" data-toggle="tab">Search</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#article" style="color: gray;" class="nav-link active" data-toggle="tab">Article</a>
+                    <a href="#book" style="color: gray;" class="nav-link active" data-toggle="tab">Book</a>
                 </li>
                 <li class="nav-item">
                     <a href="#upload" style="color: gray;" class="nav-link" data-toggle="tab">Upload</a>
@@ -18,57 +16,70 @@
                     <a href="#text" style="color: gray;" class="nav-link" data-toggle="tab">Text</a>
                 </li>
                 <li class="nav-item">
+                    <a href="#article" style="color: gray;" class="nav-link" data-toggle="tab">Article</a>
+                </li>
+                <li class="nav-item">
                     <a href="#question"  style="color: gray;" class="nav-link" data-toggle="tab">Question</a>
                 </li>
             </ul>
             <div class="tab-content">
-                <div class="tab-pane fade show active" id="search">
+                <div class="tab-pane fade show active" id="book">
                     <br>
-                    <h4 class="mt-2">Search an ebook, or link</h4>
-                    <form action="" method="POST" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Example textarea</label>
-                            <input name="book" class="form-control" type="text" placeholder="Default input">
+                    <h4 class="mt-2">Summarize a Book</h4>
+                    <div class="card" style="background-color: transparent;">
+                        <div class="card-body">
+                            <form action="" method="POST" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Enter the link of the book that you wanted to summarize:</label>
+                                    <input name="book" class="form-control" type="text" placeholder="Book link">
+                                </div>
+                                <br>
+                                <button type="submit" class="btn btn-secondary">Summarize</button>
+                            </form>                            
                         </div>
-                        <button type="submit" class="btn btn-secondary">Summarize</button>
-                    </form>
-                </div>
-                <div class="tab-pane fade show active" id="search">
-                    <br>
-                    <h4 class="mt-2">Summarize an Article</h4>
-                    <form action="" method="POST" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Example textarea</label>
-                            <input name="article" class="form-control" type="text" placeholder="Default input">
-                        </div>
-                        <button type="submit" class="btn btn-secondary">Summarize</button>
-                    </form>
+                    </div>
                 </div>
                 <div class="tab-pane fade" id="upload">
-                    <p></p>
-                    <h4 class="mt-2">Upload tab content</h4>
-                    <p></p>
+                    <br>
+                    <h4 class="mt-2">Summarize from a Text File</h4>
+                    <br>
                     <div class="col d-flex justify-content-center">
                         <form action="" method="POST" enctype="multipart/form-data">
                             <div class="mb-3">
-                                <label for="formFileSm" class="form-label">Choose the book file: </label>
+                                <label for="formFileSm" class="form-label">Choose the text file: </label>
                                 <input name="file" class="form-control form-control-sm" id="formFileSm" type="file" style="
                                           border: 1px solid whitesmoke;
                                           height: 34px;
                                           background-color: transparent;">
+                                <p style="font-size: smaller;">This currently only supports a *.txt file.</p>
                             </div>
+                            <br>
                             <button type="submit" class="btn btn-secondary">Summarize</button>
                         </form>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="text">
                     <br>
-                    <h4 class="mt-2">Text tab content</h4>
+                    <h4 class="mt-2">Summarize a Text</h4>
+                    <br>
                     <form action="" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Example textarea</label>
+                            <label for="exampleFormControlTextarea1">Enter the text you want to summarize:</label>
                             <textarea name="text" class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
                         </div>
+                        <button type="submit" class="btn btn-secondary">Summarize</button>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="article">
+                    <br>
+                    <h4 class="mt-2">Summarize an Article</h4>
+                    <br>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Enter the link of the article:</label>
+                            <input name="article" class="form-control" type="text" placeholder="Article link">
+                        </div>
+                        <br>
                         <button type="submit" class="btn btn-secondary">Summarize</button>
                     </form>
                 </div>
@@ -90,5 +101,11 @@
     </div>
 </div>
 
+{% if prediction != "" %}
+<div id="predictionContainer" class="justify-content-center">
+    <h4>{{prediction}}</h4>
+</div>
+{% endif %}
+<br>
 
 {% endblock content %}
