@@ -22,7 +22,7 @@ def summarize():
         if (
             "text" not in request.form
             and "article" not in request.form
-            and "upload_file" not in request.files
+            and "file" not in request.files
             and "book" not in request.form
         ):
             return redirect(request.url)
@@ -33,7 +33,7 @@ def summarize():
         print(f"Article Input: {article}")
         book = request.form.get("book")
         print(f"Book Input: {book}")
-        file = request.files["file", False]
+        file = request.files.get("file")
         print(f"File Input: {file}")
 
         if text == "" and article == "" and file == "" and book == "":
@@ -47,11 +47,13 @@ def summarize():
             return render_template("summary.html", summary=clean)
 
         elif article:
+            print("Elif article file")
             summary = Request.request(article)
             clean = ".".join(summary.split(" ."))
             return render_template("summary.html", summary=clean)
 
         elif file:
+            print("Elif Upload file")
             txt_file = file.read()
             txt = txt_file.decode("utf-8")
             print(f" File Type: {type(txt_file)}")
@@ -67,6 +69,12 @@ def summarize():
 
         else:
             return render_template("summarize.html")
+
+
+@app.route("/summary", methods=["POST"])
+def summarize():
+    pass
+
 
 
 if __name__ == "__main__":
