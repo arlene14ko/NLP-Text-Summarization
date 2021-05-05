@@ -24,6 +24,7 @@ def summarize():
             and "article" not in request.form
             and "file" not in request.files
             and "book" not in request.form
+            and "book_name" not in request.form
         ):
             return redirect(request.url)
 
@@ -35,8 +36,10 @@ def summarize():
         print(f"Book Input: {book}")
         file = request.files.get("file")
         print(f"File Input: {file}")
+        book_name = request.form.get("book_name")
+        print(f"Book Name Input: {book_name}")
 
-        if text == "" and article == "" and file == "" and book == "":
+        if text == "" and article == "" and file == "" and book == "" and book_name == "":
             return redirect(request.url)
 
         elif text:
@@ -44,12 +47,14 @@ def summarize():
             summary = Request.summarize(text)
             summ = summary[0]["summary_text"]
             clean = ".".join(summ.split(" ."))
+            Request.save_file(clean)
             return render_template("summary.html", summary=clean)
 
         elif article:
             print("Elif article file")
             summary = Request.request(article)
             clean = ".".join(summary.split(" ."))
+            Request.save_file(clean)
             return render_template("summary.html", summary=clean)
 
         elif file:
@@ -61,18 +66,26 @@ def summarize():
             summary = Request.summarize(txt)
             summ = summary[0]["summary_text"]
             clean = ".".join(summ.split(" ."))
+            Request.save_file(clean)
             return render_template("summary.html", summary=clean)
 
         elif book:
             print("Book name is here")
-            return render_template("summary.html", summary=book)
+            df = Request.search(book)
+            Request.save_file(clean)
+            return render_template('summarize.html', column_names=df.columns.values, row_data=list(df.values.tolist()), 
+                                    link_column="Link", summ_column = "Summarize", zip=zip)
+        
+        elif book_name:
+            print("Name of the Book here.")
+            Request.save_file(clean)
+            return render_template("summary.html", summary=book_name)
 
         else:
             return render_template("summarize.html")
 
-
-@app.route("/summary", methods=["POST"])
-def summarize():
+@app.route("/summary.txt")
+def save():
     pass
 
 

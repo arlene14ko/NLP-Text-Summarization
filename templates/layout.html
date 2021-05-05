@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html style="height: 100%;
     width: 100%;
-    overflow: hidden;">
+    overflow: scroll;">
 
 <head>
     <!-- Required meta tags -->
@@ -21,7 +21,8 @@
 
 <body style="
     color:white;
-    font-size: 14px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 13px;
     text-align: center;
     letter-spacing: 1.2px;
     width: 100%;
@@ -29,18 +30,19 @@
     font-family: 'Open Sans', Condensed;
     background: black;  ">
 
-    <div class="card" style="background: transparent;">
+    <div class="card" style="background-color: transparent;" >
         <div class="card-body">
             <header class="site-header">
-                <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top" >
+                <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top" style=" background: rgba(240, 238, 238, 0.5); font-size: 16px;">
                     <div class="container">
-                        <a class="navbar-brand mr-4" href="/">NLP Text Summary</a>
+                        <a href="/">
+                        <img src="{{url_for('static', filename='logo.png')}}" style="height:fit-content"/></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
                             aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation" >
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarToggle" >
-                            <div class="navbar-nav mr-auto">
+                            <div class="navbar-nav mr-auto" style="color: black; letter-spacing: 2px;">
                                 <a class="nav-item nav-link" href="/home"> Home</a>
                                 <a class="nav-item nav-link" href="/summarize"> Summarize</a>
                                 <a class="nav-item nav-link" href="https://github.com/arlene14ko/NLP-Text-Summarization">GitHub</a> 
@@ -51,6 +53,7 @@
             </header>
         </div>
     </div>
+    <br>
     
     <div class="container">
         {% block content %}{% endblock %}
