@@ -5,6 +5,7 @@
     <div class="card-body" style="margin-left: 20px; margin-right: 20px; ">
 
         <div class="bs-example">
+            <!-- NAVIGATION TABS -->
             <ul class="nav nav-tabs" >
                 <li class="nav-item">
                     <a href="#book" style="color: gray;" class="nav-link active" data-toggle="tab">Book</a>
@@ -22,7 +23,10 @@
                     <a href="#question"  style="color: gray;" class="nav-link" data-toggle="tab">Question</a>
                 </li>
             </ul>
+            <!-- NAVIGATION TAB CONTENT -->
             <div class="tab-content">
+
+                <!-- SEARCH BOOK TAB -->
                 <div class="tab-pane fade show active" id="book">
                     <br>
                     <div class="card" style="background-color: transparent;">
@@ -39,60 +43,9 @@
                                 </div>
                             </form>  
                             <br>  
-                            
-                            {% if ret != "" %}
-                            <div id="container" class="justify-content-center">
-                                <h6>{{ret}}</h6>
-                            </div>
-                            {% endif %}
 
-
+                            <!-- SEARCH RESULTS TABLE -->
                             {% if tables != "" %}
-                                <!--
-                                <table style="font-family: arial, sans-serif;
-                                    border-collapse: collapse;
-                                    width: 100%;"> 
-                                    <tr>
-                                        {% for col in column_names %}
-                                        <th style="border: 1px solid #0a0a0a;
-                                            text-align: center;
-                                            background-color: gray;
-                                            padding: 8px;">{{col}}</th>
-                                        {% endfor %}
-                                    </tr>
-                                    {% for row in row_data %}
-                                    <tr>
-                                        {% for col, row_ in zip(column_names, row) %}
-                                        {% if col == link_column %}
-                                        <td style="border: 1px solid #dddddd;
-                                            text-align: left;
-                                            padding: 8px;">
-                                            <a href={{ row_ }} style="color: rgb(190, 182, 182);"> {{ row_ }}</a>
-                                        </td>
-                                        {% elif col == summ_column %}
-                                        <td style="border: 1px solid #dddddd;
-                                                                                                                        text-align: left;
-                                                                                                                        padding: 8px;">
-                                            <form action="" method="POST" enctype="multipart/form-data">
-                                            <button type="submit" value={{ row_ }} name="book_name" class="btn btn-light btn-sm">
-                                                Summarize
-                                            </button>
-                                            </form>
-                                        </td>
-                                        {% else %}
-                                        <td style="border: 1px solid #dddddd;
-                                            text-align: left;
-                                            padding: 8px;">{{row_}}</td>
-                                        {% endif %}
-                                        {% endfor %}
-                                    </tr>
-                                    
-                                    {% endfor %}
-                                    
-                                
-                                </table>
-                                -->
-
                                 <table class="table table-hover table-dark">
                                     <thead>
                                         <tr>
@@ -125,11 +78,12 @@
                                         {% endfor %}
                                     </tbody>             
                                 </table>
-                            
                             {% endif %}
                         </div>
                     </div>
                 </div>
+
+                <!-- UPLOAD FILE TAB -->
                 <div class="tab-pane fade" id="upload">
                     <br>
                     <h4 class="mt-2">Summarize from a Txt File</h4>
@@ -149,6 +103,8 @@
                         </form>
                     </div>
                 </div>
+
+                <!-- SUMMARIZE A TEXT TAB -->
                 <div class="tab-pane fade" id="text">
                     <br>
                     <h4 class="mt-2">Summarize a Text</h4>
@@ -161,6 +117,8 @@
                         <button type="submit" class="btn btn-secondary">Summarize</button>
                     </form>
                 </div>
+
+                <!-- ARTICLE LINK TAB -->
                 <div class="tab-pane fade" id="article">
                     <br>
                     <h4 class="mt-2">Summarize an Article</h4>
@@ -174,18 +132,22 @@
                         <button type="submit" class="btn btn-secondary">Summarize</button>
                     </form>
                 </div>
+
+                <!-- QUESTION TAB -->
                 <div class="tab-pane fade" id="question">
                     <br>
-                    <h4 class="mt-2">Question tab content</h4>
-                    <p>Donec vel placerat quam, ut euismod risus. Sed a mi suscipit, elementum sem a, hendrerit velit.
-                        Donec at erat
-                        magna. Sed dignissim orci nec eleifend egestas. Donec eget mi consequat massa vestibulum
-                        laoreet. Mauris et
-                        ultrices nulla, malesuada volutpat ante. Fusce ut orci lorem. Donec molestie libero in tempus
-                        imperdiet. Cum
-                        sociis natoque penatibus et magnis.</p>
-
-                        <button type="submit" class="btn btn-secondary">Summarize</button>
+                    <h4 class="mt-2">Ask a Question</h4>
+                    <form action=""  enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Please enter your content here:</label>
+                            <textarea name="text" class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+                            <br>
+                            <label for="exampleFormControlTextarea1">Please enter your question:</label>
+                            <input name="article" class="form-control" type="text" placeholder="Your question here...">
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-secondary">Ask!</button>
+                    </form>
                 </div>
             </div>
         </div>

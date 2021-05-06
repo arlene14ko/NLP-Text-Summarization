@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, send_file
+# importing the necessary libraries
+from flask import Flask, render_template, request, redirect, send_file 
 import requests
 from request import Request
 import time
@@ -10,11 +11,20 @@ app = Flask(__name__)
 @app.route("/home")
 @app.route("/")
 def home():
+    """
+    Function that will render the home.html.
+    This is also the home page of the Flask App.
+    """
     return render_template("home.html")
 
 
 @app.route("/summarize", methods=["GET", "POST"])
 def summarize():
+    """
+    Function that has both GET and POST method.
+    This is the function where it will ask the user input and 
+    then summarize that input and return it back to the html file
+    """
     if request.method == "GET":
         return render_template("summarize.html")
 
@@ -29,6 +39,16 @@ def summarize():
         ):
             return redirect(request.url)
 
+        
+        """
+        :attrib text will contain the text input from the html
+        :attrib article will contain the article link input from the html
+        :attrib book will contain the search book input from the html
+        :attrib file will contain the uploaded file input from the html
+        :attrib book_name will contain the chosen book to summarize
+        :attrib start will contain the start time on when the program started
+        :attrib end will contain the end time on when the program ended
+        """
         text = request.form.get("text")
         print(f"Text Input: {text}")
         article = request.form.get("article")
@@ -98,6 +118,10 @@ def summarize():
 
 @app.route("/summary")
 def save_file():
+    """
+    Function that can be able to save the txt file summary
+    using the send_file()
+    """
     file = "static/summary.txt"
     return send_file(file, as_attachment=True)
 

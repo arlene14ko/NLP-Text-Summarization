@@ -28,8 +28,9 @@
     width: 100%;
     height: 100%;
     font-family: 'Open Sans', Condensed;
-    background: black;  ">
-
+    background: rgb(17, 15, 15);  ">
+    
+    <!-- NAVIGATION BAR -->
     <div class="card" style="background-color: transparent;" >
         <div class="card-body">
             <header class="site-header">
@@ -54,11 +55,14 @@
         </div>
     </div>
     <br>
-    
+
+    <!-- CONTENT BLOCK-->
     <div class="container">
         {% block content %}{% endblock %}
     </div>
     <br>
+
+    <!-- FOOTER -->
     <div class="footer" id="footer" style="position: fixed;
                 padding: 7px 7px 7px 7px;
                 bottom: 0;

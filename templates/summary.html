@@ -4,6 +4,8 @@
 <h1></h1>
 {% if summary != "" %}
 
+<!--- This is where the summary will show, if the summary is not null then it will display the Summary container -->
+
 <div class="card" style="background-color: transparent;">
     <div class="card-body">
         <div id="summaryContainer" class="justify-content-center">
@@ -27,6 +29,7 @@
         
 </div>
 </div>
+<!--- A simple script that will allow the user to have a TEXT-TO-SPEECH option -->
 <script>
     onload = function () {
             if ('speechSynthesis' in window) with (speechSynthesis) {
