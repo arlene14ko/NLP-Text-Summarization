@@ -1,4 +1,5 @@
-# Text summarization
+______________________________________________________________________________________________________________________________________________________
+# NLP Text summarization
 
 - Developer Name: `Arlene Postrado`
 - Level: `Junior Data Scientist`
@@ -11,104 +12,174 @@
 
 ## Mission objectives
 
-- Use of tokenization, stemming and lemmatization for exploration of text-based datasets.
-- Explore state-of-the-art algorithms for text summarization.
-- Use of transformers.
-- Evaluate the performance of pre-trained models.
-- Development and deployment of the dashboard for text summarization.
+- Be able to use of tokenization, stemming and lemmatization for exploration of text-based datasets.
+- Be able to explore state-of-the-art algorithms for text summarization.
+- Be able to use of HuggingFace transformers.
+- Be able to evaluate the performance of pre-trained models.
+- Be able to do the development and deployment of the dashboard for text summarization.
 
-## The Mission
+____________________________________________________________________________________________________________________________________________
 
-A book publishing company is interested in increasing its online sales. The marketing department discovered the way people read is evolving and now rather than reading the full book, people prefer to get an overview of the main ideas expressed by the author. The digital era also means that customers want to get answers not from one book but from thousands immediately.
+## About the Repository
 
-You have the task of developing an "AI-powered tool" able to "read" the content of any given book and make a summarization of the text. Also, the tool has to be deployed online since the company is looking to integrate the program into their website and connect it with the database where the books are stored.
+This is a project about developing a Natural language processing model that is able to summarize a full book and get an overview of the main ideas expressed by the author, this can also be able to summarize a text, an article or any link given by the user input. 
 
+The task is to develop an "AI-powered tool" that can be able to "read" the content of any given book and make a summarization of the text. Also, the tool has to be deployed online and connect it with the database where the books are stored. 
 
-![(GIF)](https://media.giphy.com/media/MhAxhXZ0uEaer0U19j/giphy.gif)
+This project currently works with the public-domain books from [Project Gutenberg](https://www.gutenberg.org/) a collection of more than 60,000 e-books. The e-book is available in several formats such as HTML, UTF-8, but on this project, it uses the UTF-8 format.
 
-### Must-have features
+![image](https://user-images.githubusercontent.com/60827480/117344278-7fafda00-aea5-11eb-8599-74f105ec198b.png)
 
-A minimum valuable product must include: 
-
-- An online dashboard where the user can select or upload an e-book and the summary is automatically generated. 
-
-You can decide the best strategy for improving the results. For example, summarizing by paragraph, by chapters, or by looking at the full book content.
-
-### Nice to have features
-
-- The users can also enter paragraphs of information to be summarized.
-- The users can query questions to be answered according to the content of the book.
-- The queries are answered according to the content of multiple books on the same or similar topics.
-- Any other interesting application that you could develop using transformers
+____________________________________________________________________________________________________________________________________________
 
 
-### Miscellaneous information
+## Repository
 
-For developing purposes, you can work with the public-domain books from [Project Gutenberg](https://www.gutenberg.org/) a collection of more than 60K e-books.
+**README.md**
+  - has all the necessary information regarding the project
 
-- For a first exploration and testing of your code, you can explore a classical of Jule Verne:
+**app.py**
+  - Flask app containing all the functions for the program to run in flask
 
-[Around the World in Eighty Days by Jules Verne](https://www.gutenberg.org/ebooks/103)
+**request.py**
+  - python program that contains all the function to get request the information about the book and to summarize the book
+  - functions include but not limited to:
+         - function that will request the url
+         - function that will scrape the url
+         - function that will summarize the book
+         - function that will create the dataframe table
+         - function to save the summary as a txt file
 
-- After, you can move forward and evaluate your program by exploring other books, you can limit your exploration to specific domains or topics.
+**Procfile**
+  - python program that will get all the features of the sound files  - 
+Heroku apps include a Procfile that specifies the commands that are executed by the app on startup.
+This Procfile is used to declare a variety of process types, including: the app's web server.
 
-The data is available in several formats such as HTML, UTF-8, feel free to work with the most convenient for your application.
+**create_csv.py**
+  - python program that will create a dataframe with all the file paths of the sound files
 
-### Constraints
+**Datasets folder**
+  - this is where all the datasets are saved
+  - this has 4 files namely:
 
-- The dashboard should be easy to access and manipulate for any user without coding experience.
-- Create **functions**, do **not** create a single huge script
-- Each **function** has to be typed
-- Your code should be **commented**
-- Your code should be **cleaned of any commented unused code**.
+      1. **fan_full_features.csv**
+          - a csv file containing the all the features extracted for the sound files of fan machines
 
-## Deliverables
 
-1. Publish your source code on the GitHub repository.
-2. **Small presentation (5 minutes) about your findings**
-3. Dashboard representative of data insights
-4. Pimp up the README file:
-   - Description
-   - Installation
-   - Usage
-   - ⚠️**DATA SOURCES**
-   - (Visuals)
-   - (Contributors)
-   - (Timeline)
-   - (Personal situation)
+      2. **pump_full_features.csv**
+          - a csv file containing the all the features extracted for the sound files of pump machines
 
-## Evaluation criteria
 
-### Technical
+      3. **slider_full_features.csv**
+          - a csv file containing the all the features extracted for the sound files of slider machines
 
-- Publish clean and readable code on Github.
-- README has the format specified in the #Deliverables section
-- Use of libraries for Natural Language Processing
-- Data has been preprocessed (tokenization, lemmatization, etc..)
-- Exploration of data using tokenization, stemming and lemmatization.
-- Transformers were used for summarizing.
-- Several pre-trained models were tested.
-- The performance of the model was evaluated.
-- Dashboard is user friendly without coding experience.
-- The program works for any given book.
 
-### Soft-skills
+      4. **valve_full_features.csv**
+          - a csv file containing the all the features extracted for the sound files of valve machines
 
-- Communication with the client was prioritized to understand his needs
-- Project steps were enumerated and tasks were dispatched
-- Time available was managed well
 
-### Final presentation
 
-- Slides are not too cluttered
-- The text on the slides is not read out loud
-- Presentation is tailored to the audience
-- Every group member understood each part of the project
-- Body language and intonation were professional
+**Models folder**
+  - this is where all the models are saved
+  - this has 4 files namely:
 
-## A final note of encouragement
 
-"You don't really start getting old until you stop learning" Bill Gates
+      1. **fan_model.sav**
+          - the machine learning model created for Fan machines
 
-![BOB](https://media.giphy.com/media/WoWm8YzFQJg5i/giphy.gif
+
+      2. **pump_model.sav**
+          - the machine learning model created for Pump machines
+
+
+      3. **slider_model.sav**
+          - the machine learning model created for Slider machines
+
+
+      4. **valve_model.sav**
+          - the machine learning model created for Valve machines
+
+
+     
+   
+**Models Creation folder**
+  - this is where all the jupyter notebooks to create the models are saved 
+  - this has 4 files namely:
+
+
+      1. **fan_features.ipynb**
+          - the jupyter notebook to create the model for Fan machines
+
+
+      2. **pump_features.ipynb**
+          - the jupyter notebook to create the model for Pump machines
+
+
+      3. **slider_features.ipynb**
+          - the jupyter notebook to create the model for Slider machines
+
+
+      4. **valve_features.ipyn**
+          - the jupyter notebook to create the model for Valve machines
+          
+
+**Demo  folder**
+  - this is where our demo are saved for our model 
+______________________________________________________________________________________________________________________________________________________
+
+## Libraries Used For This Project
+
+
+**Librosa** https://librosa.org/doc/latest/index.html
+  - Librosa is a python package for music and audio analysis. It provides the building blocks necessary to create music information retrieval systems.
+  - In this project, librosa is used to extract the features of the sound files.
+
+
+**Sci-kit Learn** https://scikit-learn.org/stable/
+  - Sci-kit learn is a simple and efficient tools for predictive data analysis.
+  - In this project, sci-kit learn is used to create the models.
+
+
+**Pickle** https://docs.python.org/3/library/pickle.html
+  - The pickle module implements binary protocols for serializing and de-serializing a Python object structure. 
+  - In this project, pickle is used to save and read the models in a `sav` format.
+
+
+**Pandas** https://pypi.org/project/pandas/
+  - Pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool,
+built on top of the Python programming language.
+  - In this project, pandas is used to read the csv files as a dataframe.
+
+
+**Numpy** https://numpy.org/
+  - Numpy is the fundamental package for scientific computing with Python.
+  - In this project, numpy is used to get the mean, min, max and std of an array in the features.
+
+
+**OS** https://docs.python.org/3/library/os.html
+  - This module provides a portable way of using operating system dependent functionality.
+  - In this project, OS is used to get the list of directories in a file path.
+
+
+**Time** https://docs.python.org/3/library/time.html
+  - Time module handles time-related tasks.
+  - In this project, time is used to calculate the total time the code runs.
+
+
+**Typing** https://docs.python.org/3/library/typing.html
+  - Typing defines a standard notation for Python function and variable type annotations.
+  - In this project, typing is used to help document the code properly.
+
+______________________________________________________________________________________________________________________________________________________
+
+## Clone/Fork Repository
+  - If you wish to clone/fork this repository, you can just click on the repository, then click the Clone/fork button and follow the instructions.
+
+## Pending...
+  - The Question tab is still in progress.. If you have any suggestions, feel free to contact me. Thank you!
+
+![Thank you](https://static.euronews.com/articles/320895/560x315_320895.jpg?1452514624)
+### Thank you for reading. Have fun with the code!
+
+
 
