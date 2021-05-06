@@ -35,7 +35,7 @@ This project currently works with the public-domain books from [Project Gutenber
 
 ![image](https://user-images.githubusercontent.com/60827480/117363726-42574680-aebd-11eb-9ffb-af78de35da95.png)
 
-**Sample Article summary of this news from [The Guardian](https://www.theguardian.com/technology/2021/apr/09/elon-musk-neuralink-monkey-video-game). There is an option to save the summary as a file or to play the summary as there is a Text-to-Speech option on the webpage.**
+**Sample Article summary of a news about a `Neuralink video which appears to show monkey controlling game paddle simply by thinking` from [The Guardian](https://www.theguardian.com/technology/2021/apr/09/elon-musk-neuralink-monkey-video-game). There is an option to `save the summary as a file` or to `play, pause or stop` the summary as there is a Text-to-Speech option on the webpage.**
 ![image](https://user-images.githubusercontent.com/60827480/117369064-ab8e8800-aec4-11eb-9720-72bde06a5417.png)
 
 ____________________________________________________________________________________________________________________________________________
