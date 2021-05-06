@@ -12,7 +12,7 @@ ________________________________________________________________________________
 - Promotion : `AI Theano 2`
 - Team challenge: `Coding Bootcamp: Becode Artificial Intelligence (AI) Bootcamp`
 
-### M i s s i o n      O b j e c t i v e s
+## Mission Objectives
 
 - Be able to use of tokenization, stemming and lemmatization for exploration of text-based datasets.
 - Be able to explore state-of-the-art algorithms for text summarization.
@@ -22,7 +22,7 @@ ________________________________________________________________________________
 
 ____________________________________________________________________________________________________________________________________________
 
-## A b o u t   T h e     R e p o s i t o r y
+## About The Repository
 
 This is a project about developing a Natural language processing model that is able to summarize a full book and get an overview of the main ideas expressed by the author, this can also be able to summarize a text, an article or any link given by the user input. 
 
@@ -97,7 +97,7 @@ ________________________________________________________________________________
   - you can find some txt files in this folder which are actually from news articles, this is only used to demonstrate how the **Upload tab** works 
 ______________________________________________________________________________________________________________________________________________________
 
-## L I B R A R I E S  u s e d f o r t h i s   P R O J E C T
+## Libraries Used For This Project
 
 
 **Hugging Face 🤗 Transformers**  https://huggingface.co/transformers/
@@ -146,7 +146,7 @@ ________________________________________________________________________________
 
 ______________________________________________________________________________________________________________________________________________________
 
-## C L O N E / F O R K  t h i s           R E P O S I T O R Y
+## Clone / Fork This Repository
   - If you wish to clone/fork this repository, you can just click on the repository, then click the Clone/fork button and follow the instructions.
 
 ## P E N D I N G . . .
