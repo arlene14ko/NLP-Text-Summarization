@@ -4,16 +4,19 @@
 <h1></h1>
 {% if summary != "" %}
 
-<div id="summaryContainer" class="justify-content-center">
-    <h2>Summary</h2>
-    <br>
-    <h6>{{summary}}</h6>
+<div class="card" style="background-color: transparent;">
+    <div class="card-body">
+        <div id="summaryContainer" class="justify-content-center">
+            <h2>Summary</h2>
+            <br>
+            <h6 name="summary">{{summary}}</h6>
+        </div>
+        <br>
+        <a href="{{url_for('save_file')}}" download>
+        <button type="button" class="btn btn-secondary btn-sm">Save as file</button> 
+        </a>
 </div>
-<a href="summary.txt" download>
-<button type="button" class="btn btn-secondary btn-sm">Save as file</button> 
-</a>
+</div>
 
 {% endif %}
-
-
 {% endblock content %}

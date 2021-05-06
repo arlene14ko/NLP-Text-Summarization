@@ -51,12 +51,14 @@ class Request:
         return df
 
 
-    def request(url):
+    def article(url):
         soup = Request.soup(url)
         results = soup.find_all(["h1", "p"])
         text = [result.text for result in results]
         ARTICLE = " ".join(text)
+        return ARTICLE
 
+    def chunks(ARTICLE):
         max_chunk = 500
         ARTICLE = ARTICLE.replace(".", ".<eos>")
         ARTICLE = ARTICLE.replace("?", "?<eos>")
@@ -84,7 +86,7 @@ class Request:
         return summary
 
     def save_file(summary):
-        with open("summary.txt", "w") as file:
+        with open("./static/summary.txt", "w") as file:
             file.write(summary)
-        print "Successfully saved the summary!"
+        print("Successfully saved the summary!")
         

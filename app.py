@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, send_file
 import requests
 from request import Request
+import time
 
 
 app = Flask(__name__)
@@ -38,23 +39,28 @@ def summarize():
         print(f"File Input: {file}")
         book_name = request.form.get("book_name")
         print(f"Book Name Input: {book_name}")
+        start = time.time()
 
         if text == "" and article == "" and file == "" and book == "" and book_name == "":
             return redirect(request.url)
 
         elif text:
             print("Elif text file")
-            summary = Request.summarize(text)
-            summ = summary[0]["summary_text"]
+            summary = Request.chunks(text)
             clean = ".".join(summ.split(" ."))
             Request.save_file(clean)
+            end = time.time()
+            print(f"Program runs for {end - start} seconds.")
             return render_template("summary.html", summary=clean)
 
         elif article:
             print("Elif article file")
-            summary = Request.request(article)
-            clean = ".".join(summary.split(" ."))
+            summary = Request.article(article)
+            chunks = Request.chunks(summary)
+            clean = ".".join(chunks.split(" ."))
             Request.save_file(clean)
+            end = time.time()
+            print(f"Program runs for {end - start} seconds.")
             return render_template("summary.html", summary=clean)
 
         elif file:
@@ -63,31 +69,34 @@ def summarize():
             txt = txt_file.decode("utf-8")
             print(f" File Type: {type(txt_file)}")
             print(f" Txt Type: {type(txt_file)}")
-            summary = Request.summarize(txt)
-            summ = summary[0]["summary_text"]
-            clean = ".".join(summ.split(" ."))
-            Request.save_file(clean)
-            return render_template("summary.html", summary=clean)
+            summary = Request.chunks(txt)
+            summ = ".".join(summary.split(" ."))
+            Request.save_file(summ)
+            end = time.time()
+            print(f"Program runs for {end - start} seconds.")
+            return render_template("summary.html", summary=summ)
 
         elif book:
             print("Book name is here")
             df = Request.search(book)
-            Request.save_file(clean)
             return render_template('summarize.html', column_names=df.columns.values, row_data=list(df.values.tolist()), 
                                     link_column="Link", summ_column = "Summarize", zip=zip)
         
         elif book_name:
             print("Name of the Book here.")
-            Request.save_file(clean)
+            Request.save_file(book_name)
+            end = time.time()
+            print(f"Program runs for {end - start} seconds.")
             return render_template("summary.html", summary=book_name)
 
         else:
             return render_template("summarize.html")
 
-@app.route("/summary.txt")
-def save():
-    pass
 
+@app.route("/summary")
+def save_file():
+    file = "static/summary.txt"
+    return send_file(file, as_attachment=True)
 
 
 if __name__ == "__main__":
