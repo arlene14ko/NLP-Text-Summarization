@@ -31,8 +31,12 @@ The task is to develop an "AI-powered tool" that can be able to "read" the conte
 This project currently works with the public-domain books from [Project Gutenberg](https://www.gutenberg.org/) a collection of more than 60,000 e-books. The e-book is available in several formats such as HTML, UTF-8, but on this project, it uses the UTF-8 format.
 
 
+**Sample Search bar tab where you search for a book and it will list all the search results, from there you can choose which one to summarize**
+
 ![image](https://user-images.githubusercontent.com/60827480/117363726-42574680-aebd-11eb-9ffb-af78de35da95.png)
 
+**Sample Article summary of this news from [The Guardian](https://www.theguardian.com/technology/2021/apr/09/elon-musk-neuralink-monkey-video-game). There is an option to save the summary as a file or to play the summary as there is a Text-to-Speech option on the webpage.**
+![image](https://user-images.githubusercontent.com/60827480/117369064-ab8e8800-aec4-11eb-9720-72bde06a5417.png)
 
 ____________________________________________________________________________________________________________________________________________
 
