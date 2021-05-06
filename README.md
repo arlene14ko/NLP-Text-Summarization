@@ -12,7 +12,7 @@ ________________________________________________________________________________
 - Promotion : `AI Theano 2`
 - Team challenge: `Coding Bootcamp: Becode Artificial Intelligence (AI) Bootcamp`
 
-## Mission objectives
+### M I S S I O N   O B J E C T I V E S
 
 - Be able to use of tokenization, stemming and lemmatization for exploration of text-based datasets.
 - Be able to explore state-of-the-art algorithms for text summarization.
@@ -22,7 +22,7 @@ ________________________________________________________________________________
 
 ____________________________________________________________________________________________________________________________________________
 
-## About the Repository
+## A B O U T   T H E   R E P O S I T O R Y
 
 This is a project about developing a Natural language processing model that is able to summarize a full book and get an overview of the main ideas expressed by the author, this can also be able to summarize a text, an article or any link given by the user input. 
 
@@ -36,7 +36,7 @@ This project currently works with the public-domain books from [Project Gutenber
 ____________________________________________________________________________________________________________________________________________
 
 
-## Repository
+## R E P O S I T O R Y
 
 **README.md**
   - has all the necessary information regarding the project
@@ -97,7 +97,7 @@ ________________________________________________________________________________
   - you can find some txt files in this folder which are actually from news articles, this is only used to demonstrate how the **Upload tab** works 
 ______________________________________________________________________________________________________________________________________________________
 
-## Libraries Used For This Project
+## L I B R A R I E S  U S E D   I N   T H I S   P R O J E C T
 
 
 **Hugging Face 🤗 Transformers**  https://huggingface.co/transformers/
@@ -139,18 +139,21 @@ ________________________________________________________________________________
 
 **Heroku** //www.heroku.com
   - Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
-  - In this project, Heroku is used to deploy the app but due to limited GB since we are only using the free version, it was returning an error that the 
+  - In this project, Heroku is used to deploy the app but due to limited GB since we are only using the free version, it was returning an error that the slug size is too big.
+  - As free users of Heroku, we are only allowed of up to 500MB slug size.
+  -            ![image](https://user-images.githubusercontent.com/60827480/117362204-42564700-aebb-11eb-805d-442270ebe792.png)
+
 
 ______________________________________________________________________________________________________________________________________________________
 
-## Clone/Fork Repository
+## C L O N E / F O R K  R E P O S I T O R Y
   - If you wish to clone/fork this repository, you can just click on the repository, then click the Clone/fork button and follow the instructions.
 
-## Pending...
+## P E N D I N G . . .
   - The Question tab is still in progress.. If you have any suggestions, feel free to contact me. Thank you!
 
 ![Thank you](https://static.euronews.com/articles/320895/560x315_320895.jpg?1452514624)
-### Thank you for reading. Have fun with the code!
+### Thank you for reading. Have fun with the code! 🤗
 
 
 
