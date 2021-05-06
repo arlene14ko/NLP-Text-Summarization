@@ -1,5 +1,7 @@
 ______________________________________________________________________________________________________________________________________________________
-# NLP Text summarization
+# NLP Text Summarization
+![logo](https://user-images.githubusercontent.com/60827480/117361647-990f5100-aeba-11eb-9a82-761620b04fa3.JPG)
+
 
 - Developer Name: `Arlene Postrado`
 - Level: `Junior Data Scientist`
