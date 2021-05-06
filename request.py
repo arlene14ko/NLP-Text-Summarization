@@ -48,8 +48,8 @@ class Request:
         :attrib link will contain the TXT link of the book
         :attrib results will contain the results of the scraped info
         :attrib chapters will contain the chapters of the book 
-        :attrib book_summ will contain the summarized version of each chapter
-        This function will return the book_summ 
+        :attrib book_summary will contain the summarized version of each chapter
+        This function will return the book_summary
         """
         link = f'https://www.gutenberg.org/cache/epub/{code}/pg{code}.txt'
         print(f"Txt file of the book link: {link}")
@@ -58,10 +58,14 @@ class Request:
         res = results.split("End of Project Gutenberg")[0]
         chapters = res.split("Chapter ")[1:]
         print(f"Chapters: {len(chapters)}")
-        book_summ = {}
+        book_summ = []
         for i in chapters:
-            book_summ[f'Chapter {i.split(" ")[0]}'] = Request.chunks(i)   
-        return book_summ  
+            book_summ.append(Request.chunks(i))
+
+        book_summary = {}   
+        for i in range(len(book_summ)):
+            book_summary[f'Chapter {i+1}'] = book_summ[i]
+        return book_summary
 
 
     def clean(name: str) -> str:

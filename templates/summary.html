@@ -2,12 +2,27 @@
 {% block content %}
 <br>
 <h1></h1>
-{% if summary != "" %}
 
 <!--- This is where the summary will show, if the summary is not null then it will display the Summary container -->
 
 <div class="card" style="background-color: transparent;">
     <div class="card-body">
+        {% if book_summary != "" %} 
+        <div id="booksummaryContainer" class="justify-content-center">
+            <h2>Summary</h2>
+            <br>
+            <article name="book_summary">
+                {% for key, value in book_summary.items() %}
+                    <h5> {{ key }} </h5>
+                    <p> {{ value }} </p>
+                {% endfor %}
+            </article>
+        </div>
+        <br>
+
+        {% endif %}
+
+        {% if summary != "" %}
         <div id="summaryContainer" class="justify-content-center">
             <h2>Summary</h2>
             <br>
@@ -16,18 +31,15 @@
             </article>
         </div>
         <br>
-        <div>
+        {% endif %}
+
         <button id=play type="button" class="btn btn-secondary btn-sm">Play</button> &nbsp;
         <button id=pause type="button" class="btn btn-secondary btn-sm">Pause</button> &nbsp;
         <button id=stop type="button" class="btn btn-secondary btn-sm">Stop</button>
-        </div>
         <br>
         <a href="{{url_for('save_file')}}" download>
-            <button type="button" class="btn btn-secondary btn-sm">Save as file</button>
-        </a>
-
-        
-</div>
+            <button type="button" class="btn btn-secondary btn-sm">Save as file</button></a>
+    </div>
 </div>
 <!--- A simple script that will allow the user to have a TEXT-TO-SPEECH option -->
 <script>
@@ -98,5 +110,4 @@
         }
 </script>
 
-{% endif %}
 {% endblock content %}

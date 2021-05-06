@@ -36,7 +36,12 @@
                                     <label for="exampleFormControlTextarea1">Search for the book:</label>
                                 </div>
                                 <div class="form-group mx-sm-3 mb-2">
-                                    <input name="book" class="form-control" type="text" placeholder="Book Name">
+                                    {% if search_book != "" %}
+                                    <input name="book" class="form-control" type="text" placeholder={{ search_book }}>
+                                    {% else %}
+                                    <input name="book" class="form-control" type="text" placeholder="Book name here ...">
+                                    {% endif %}
+                                    
                                 </div>
                                 <div class="form-group mb-2">                          
                                     <button type="submit" class="btn btn-secondary">Search</button>

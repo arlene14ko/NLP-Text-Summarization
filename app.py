@@ -100,17 +100,16 @@ def summarize():
             print(f"Searching for Book name: {book}")
             df = Request.search(book)
             return render_template('summarize.html', column_names=df.columns.values, row_data=list(df.values.tolist()), 
-                                    link_column="Link", summ_column = "Summarize", zip=zip)
+                                    link_column="Link", summ_column = "Summarize", zip=zip, search_book=book)
         
         elif book_name:
             print(f"Summarize the book link: {book_name}")
             chapter_summary = Request.book_summary(book_name)
             # summarize the entire book
-            chapters = str(chapter_summary)
-            Request.save_file(chapters)
+            Request.save_file(chapter_summary)
             end = time.time()
             print(f"Program runs for {end - start} seconds.")
-            return render_template("summary.html", summary=chapters)
+            return render_template("summary.html", book_summary=chapter_summary)
 
         else:
             return render_template("summarize.html")
