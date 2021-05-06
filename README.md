@@ -12,7 +12,7 @@ ________________________________________________________________________________
 - Promotion : `AI Theano 2`
 - Team challenge: `Coding Bootcamp: Becode Artificial Intelligence (AI) Bootcamp`
 
-### M I S S I O N       O B J E C T I V E S
+### M i s s i o n      O b j e c t i v e s
 
 - Be able to use of tokenization, stemming and lemmatization for exploration of text-based datasets.
 - Be able to explore state-of-the-art algorithms for text summarization.
