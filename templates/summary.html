@@ -7,20 +7,6 @@
 
 <div class="card" style="background-color: transparent;">
     <div class="card-body">
-        {% if book_summary != "" %} 
-        <div id="booksummaryContainer" class="justify-content-center">
-            <h2>Summary</h2>
-            <br>
-            <article name="book_summary">
-                {% for key, value in book_summary.items() %}
-                    <h5> {{ key }} </h5>
-                    <p> {{ value }} </p>
-                {% endfor %}
-            </article>
-        </div>
-        <br>
-
-        {% endif %}
 
         {% if summary != "" %}
         <div id="summaryContainer" class="justify-content-center">
@@ -33,9 +19,25 @@
         <br>
         {% endif %}
 
+        {% if book_summary != "" %}
+        <div id="booksummaryContainer" class="justify-content-center">
+            <h2>Summary</h2>
+            <br>
+            <article name="book_summary">
+                {% for key, value in book_summary.items() %}
+                <h5> {{ key }} </h5>
+                <p> {{ value }} </p>
+                {% endfor %}
+            </article>
+        </div>
+        <br>
+        
+        {% endif %}
+
         <button id=play type="button" class="btn btn-secondary btn-sm">Play</button> &nbsp;
         <button id=pause type="button" class="btn btn-secondary btn-sm">Pause</button> &nbsp;
         <button id=stop type="button" class="btn btn-secondary btn-sm">Stop</button>
+        <br>
         <br>
         <a href="{{url_for('save_file')}}" download>
             <button type="button" class="btn btn-secondary btn-sm">Save as file</button></a>

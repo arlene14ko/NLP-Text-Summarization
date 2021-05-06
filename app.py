@@ -71,7 +71,7 @@ def summarize():
             Request.save_file(clean)
             end = time.time()
             print(f"Program runs for {end - start} seconds.")
-            return render_template("summary.html", summary=clean)
+            return render_template("summary.html", summary=clean, book_summary="")
 
         elif article:
             print("Elif article file")
@@ -81,7 +81,7 @@ def summarize():
             Request.save_file(clean)
             end = time.time()
             print(f"Program runs for {end - start} seconds.")
-            return render_template("summary.html", summary=clean)
+            return render_template("summary.html", summary=clean, book_summary="")
 
         elif file:
             print("Elif Upload file")
@@ -94,7 +94,7 @@ def summarize():
             Request.save_file(summ)
             end = time.time()
             print(f"Program runs for {end - start} seconds.")
-            return render_template("summary.html", summary=summ)
+            return render_template("summary.html", summary=summ, book_summary="")
 
         elif book:
             print(f"Searching for Book name: {book}")
@@ -106,10 +106,11 @@ def summarize():
             print(f"Summarize the book link: {book_name}")
             chapter_summary = Request.book_summary(book_name)
             # summarize the entire book
-            Request.save_file(chapter_summary)
+            chapters = str(chapter_summary)
+            Request.save_file(chapters)
             end = time.time()
             print(f"Program runs for {end - start} seconds.")
-            return render_template("summary.html", book_summary=chapter_summary)
+            return render_template("summary.html",summary="", book_summary=chapter_summary)
 
         else:
             return render_template("summarize.html")

@@ -51,11 +51,13 @@ class Request:
         :attrib book_summary will contain the summarized version of each chapter
         This function will return the book_summary
         """
-        link = f'https://www.gutenberg.org/cache/epub/{code}/pg{code}.txt'
-        print(f"Txt file of the book link: {link}")
+        link = f'https://www.gutenberg.org/ebooks/{code}.txt.utf-8'
+        print(f"Getting the book link using bs4: {link}")
         soup = Request.soup(link)
         results = str(soup)
+        print("Getting the result of the book")
         res = results.split("End of Project Gutenberg")[0]
+        print("Getting the chapters")
         chapters = res.split("Chapter ")[1:]
         print(f"Chapters: {len(chapters)}")
         book_summ = []
@@ -172,7 +174,8 @@ class Request:
         Function save_file will save the summary to a txt file
         This will allow the user to save the summary as a txt file
         """
+        summ = str(summary)
         with open("./static/summary.txt", "w") as file:
-            file.write(summary)
+            file.write(summ)
         print("Successfully saved the summary!")
         
