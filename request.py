@@ -55,8 +55,9 @@ class Request:
         print(f"Txt file of the book link: {link}")
         soup = Request.soup(link)
         results = str(soup)
-        res = results.split("Chapter ")
-        chapters = res[1:]
+        res = results.split("End of Project Gutenberg")[0]
+        chapters = res.split("Chapter ")[1:]
+        print(f"Chapters: {len(chapters)}")
         book_summ = {}
         for i in chapters:
             book_summ[f'Chapter {i.split(" ")[0]}'] = Request.chunks(i)   
