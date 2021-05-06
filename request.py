@@ -5,8 +5,8 @@ import requests
 import time
 
 
-
 class Request:
+    
     def summarize(text):
         summarizer = pipeline("summarization")
         summary = summarizer(text, max_length=120, min_length=30, do_sample=False)
@@ -17,7 +17,19 @@ class Request:
         soup = BeautifulSoup(r.text, "html.parser")
         time.sleep(3)
         return soup
-    
+
+    def book_summary(code):
+        link = f'https://www.gutenberg.org/cache/epub/{code}/pg{code}.txt'
+        print(f"Txt file of the book link: {link}")
+        soup = Request.soup(link)
+        results = str(soup)
+        res = results.split("Chapter ")
+        chapters = res[1:]
+        book_summ = {}
+        for i in chapters:
+            book_summ[f'Chapter {i.split(" ")[0]}'] = Request.chunks(i)   
+        return book_summ  
+
 
     def clean(name):
         if str(name) == "[]":
@@ -31,22 +43,23 @@ class Request:
 
     def search(book):
         url = "https://www.gutenberg.org/ebooks/search/?query=" + str(book)
+        print(f"Search book name: {url}")
         soup = Request.soup(url)
         results = []
         for match in soup.find_all('li', class_='booklink'):
-            link = match.a.get('href')
+            ebook = match.a.get('href')
             title = match("span", {"class":"title"})
             author = match("span", {"class":"subtitle"})
             dl = match("span", {"class":"extra"})
+            link = "https://www.gutenberg.org" + str(ebook) 
             res = [title, author, link, dl]
             results.append(res)
 
         df = pd.DataFrame(results, columns =['Title', 'Author', 'Link', 'Downloads'])
-        df['Link'] = df['Link'].apply(lambda x: "https://www.gutenberg.org" + x)
         df['Title'] = df['Title'].apply(Request.clean)
         df['Author'] = df['Author'].apply(Request.clean)
         df['Downloads'] = df['Downloads'].apply(Request.clean)
-        df['Summarize'] = df['Link']
+        df['Summarize'] = df['Link'].apply(lambda x: x.split("/")[-1])
         df.index = df.index + 1 
         return df
 

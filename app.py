@@ -47,7 +47,7 @@ def summarize():
         elif text:
             print("Elif text file")
             summary = Request.chunks(text)
-            clean = ".".join(summ.split(" ."))
+            clean = ".".join(summary.split(" ."))
             Request.save_file(clean)
             end = time.time()
             print(f"Program runs for {end - start} seconds.")
@@ -77,17 +77,20 @@ def summarize():
             return render_template("summary.html", summary=summ)
 
         elif book:
-            print("Book name is here")
+            print(f"Searching for Book name: {book}")
             df = Request.search(book)
             return render_template('summarize.html', column_names=df.columns.values, row_data=list(df.values.tolist()), 
                                     link_column="Link", summ_column = "Summarize", zip=zip)
         
         elif book_name:
-            print("Name of the Book here.")
-            Request.save_file(book_name)
+            print(f"Summarize the book link: {book_name}")
+            chapter_summary = Request.book_summary(book_name)
+            # summarize the entire book
+            chapters = str(chapter_summary)
+            Request.save_file(chapters)
             end = time.time()
             print(f"Program runs for {end - start} seconds.")
-            return render_template("summary.html", summary=book_name)
+            return render_template("summary.html", summary=chapters)
 
         else:
             return render_template("summarize.html")
