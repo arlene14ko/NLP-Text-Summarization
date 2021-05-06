@@ -142,7 +142,8 @@ ________________________________________________________________________________
   - Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
   - In this project, Heroku is used to deploy the app but due to limited GB since we are only using the free version, it was returning an error that the slug size is too big.
   - As free users of Heroku, we are only allowed of up to 500MB slug size.
-  -            ![image](https://user-images.githubusercontent.com/60827480/117362204-42564700-aebb-11eb-805d-442270ebe792.png)
+  - Everything is already in the repository, the Procfile and the requirements.txt, we just need a bigger slug size to deploy it
+![image](https://user-images.githubusercontent.com/60827480/117362204-42564700-aebb-11eb-805d-442270ebe792.png)
 
 
 ______________________________________________________________________________________________________________________________________________________
