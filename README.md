@@ -28,7 +28,8 @@ The task is to develop an "AI-powered tool" that can be able to "read" the conte
 
 This project currently works with the public-domain books from [Project Gutenberg](https://www.gutenberg.org/) a collection of more than 60,000 e-books. The e-book is available in several formats such as HTML, UTF-8, but on this project, it uses the UTF-8 format.
 
-![image](https://user-images.githubusercontent.com/60827480/117344278-7fafda00-aea5-11eb-8599-74f105ec198b.png)
+![image](https://user-images.githubusercontent.com/60827480/117357285-0f10b980-aeb5-11eb-99ce-31095ead2913.png)
+
 
 ____________________________________________________________________________________________________________________________________________
 
@@ -51,114 +52,78 @@ ________________________________________________________________________________
          - function to save the summary as a txt file
 
 **Procfile**
-  - python program that will get all the features of the sound files  - 
-Heroku apps include a Procfile that specifies the commands that are executed by the app on startup.
-This Procfile is used to declare a variety of process types, including: the app's web server.
+  - Heroku apps include a Procfile that specifies the commands that are executed by the app on startup.
+  - This Procfile is used to declare a variety of process types, including: the app's web server.
 
-**create_csv.py**
-  - python program that will create a dataframe with all the file paths of the sound files
+**requirements.txt**
+  - is a txt file used for specifying what python packages are required to run this project
 
-**Datasets folder**
-  - this is where all the datasets are saved
-  - this has 4 files namely:
+**templates folder**
+  - this is where all the html templates are saved
+  - this has 4 html files namely:
 
-      1. **fan_full_features.csv**
-          - a csv file containing the all the features extracted for the sound files of fan machines
-
-
-      2. **pump_full_features.csv**
-          - a csv file containing the all the features extracted for the sound files of pump machines
+      1. **home.html**
+          - home html file is the starting base of the website
 
 
-      3. **slider_full_features.csv**
-          - a csv file containing the all the features extracted for the sound files of slider machines
+      2. **layout.html**
+          - this is where all the imports for the html is located
+          - this is also where the NavBar and the Footer is saved so it will be shown on all pages
 
 
-      4. **valve_full_features.csv**
-          - a csv file containing the all the features extracted for the sound files of valve machines
+      3. **summarize.html**
+          - this is where the summary option is located
+          - it has a tab depending on the type file you want to summarize
+                  - Search tab - allows the user to search for a book from the Project Gutenberg ebooks and then an option to summarize that book
+                  - Upload tab - allows the user to upload a txt file to summarize
+                  - Text tab - allows the user to input a text and then it will summarize that text
+                  - Article tab - allows the user to input an article, news, or link and it will summarize that article
+                  - Questions tab - allows the user to input a question and the content and it will answer it for you (This is still in Progress..)
 
 
-
-**Models folder**
-  - this is where all the models are saved
-  - this has 4 files namely:
-
-
-      1. **fan_model.sav**
-          - the machine learning model created for Fan machines
+      4. **summary.html**
+          - this is the page where you will see the summary of the input, either a book, an upload, a text or a link
+          - there is also an option to save the summary as a txt.file if you click on the **Save as File** button
+          - there is also a Text-to-Speech option, where if you click on **Play** it will read the summary for you, other buttons are **Pause** and **Stop**
 
 
-      2. **pump_model.sav**
-          - the machine learning model created for Pump machines
-
-
-      3. **slider_model.sav**
-          - the machine learning model created for Slider machines
-
-
-      4. **valve_model.sav**
-          - the machine learning model created for Valve machines
-
-
-     
-   
-**Models Creation folder**
-  - this is where all the jupyter notebooks to create the models are saved 
-  - this has 4 files namely:
-
-
-      1. **fan_features.ipynb**
-          - the jupyter notebook to create the model for Fan machines
-
-
-      2. **pump_features.ipynb**
-          - the jupyter notebook to create the model for Pump machines
-
-
-      3. **slider_features.ipynb**
-          - the jupyter notebook to create the model for Slider machines
-
-
-      4. **valve_features.ipyn**
-          - the jupyter notebook to create the model for Valve machines
-          
-
-**Demo  folder**
-  - this is where our demo are saved for our model 
+**static folder**
+  - this is where the logo is saved
+  - this is also where the **summary.txt** is saved, which gives the user the option to download the summary as a txt file
+      
+**demo folder**
+  - you can find some txt files in this folder which are actually from news articles, this is only used to demonstrate how the **Upload tab** works 
 ______________________________________________________________________________________________________________________________________________________
 
 ## Libraries Used For This Project
 
 
-**Librosa** https://librosa.org/doc/latest/index.html
-  - Librosa is a python package for music and audio analysis. It provides the building blocks necessary to create music information retrieval systems.
-  - In this project, librosa is used to extract the features of the sound files.
+**Hugging Face 🤗 Transformers**  https://huggingface.co/transformers/
+  - Hugging Face is an NLP-focused startup with a large open-source community, in particular around the Transformers library. 
+  - 🤗 Transformers is a python-based library that exposes an API to use many well-known transformer architectures, such as BERT, RoBERTa, GPT-2 or DistilBERT, that obtain state-of-the-art results on a variety of NLP tasks like text classification, information extraction, question answering, and text generation. 
+  - Those architectures come pre-trained with several sets of weights. 
+  - In this project, transformers pipeline is used to summarize the text
 
 
-**Sci-kit Learn** https://scikit-learn.org/stable/
-  - Sci-kit learn is a simple and efficient tools for predictive data analysis.
-  - In this project, sci-kit learn is used to create the models.
+**Flask** https://flask.palletsprojects.com/en/1.1.x/
+  - Flask is a micro web framework written in Python. It is classified as a microframework because it does not require particular tools or libraries
+  - In this project, flask is used to create the web dashboard application 
 
-
-**Pickle** https://docs.python.org/3/library/pickle.html
-  - The pickle module implements binary protocols for serializing and de-serializing a Python object structure. 
-  - In this project, pickle is used to save and read the models in a `sav` format.
 
 
 **Pandas** https://pypi.org/project/pandas/
-  - Pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool,
-built on top of the Python programming language.
-  - In this project, pandas is used to read the csv files as a dataframe.
+  - Pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language.
+  - In this project, pandas is used convert a list to create a dataframe 
 
 
-**Numpy** https://numpy.org/
-  - Numpy is the fundamental package for scientific computing with Python.
-  - In this project, numpy is used to get the mean, min, max and std of an array in the features.
+**Requests** https://docs.python-requests.org/en/master/
+  - Requests is an HTTP library, written in Python, for human beings.
+  - In this project, requests is used to send an HTTP request
 
 
-**OS** https://docs.python.org/3/library/os.html
-  - This module provides a portable way of using operating system dependent functionality.
-  - In this project, OS is used to get the list of directories in a file path.
+**BeautifulSoup** https://pypi.org/project/beautifulsoup4/
+  - Beautiful Soup is a library that makes it easy to scrape information from web pages. It sits atop an HTML or XML parser, providing Pythonic idioms for iterating, searching, and modifying the parse tree.
+  - In this project, Beautiful Soup is used to scrape the Project Gutenberg e-books and also to scrape article links that is provided by the users
 
 
 **Time** https://docs.python.org/3/library/time.html
@@ -169,6 +134,10 @@ built on top of the Python programming language.
 **Typing** https://docs.python.org/3/library/typing.html
   - Typing defines a standard notation for Python function and variable type annotations.
   - In this project, typing is used to help document the code properly.
+
+**Heroku** //www.heroku.com
+  - Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+  - In this project, Heroku is used to deploy the app but due to limited GB since we are only using the free version, it was returning an error that the 
 
 ______________________________________________________________________________________________________________________________________________________
 
