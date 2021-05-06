@@ -30,7 +30,8 @@ The task is to develop an "AI-powered tool" that can be able to "read" the conte
 
 This project currently works with the public-domain books from [Project Gutenberg](https://www.gutenberg.org/) a collection of more than 60,000 e-books. The e-book is available in several formats such as HTML, UTF-8, but on this project, it uses the UTF-8 format.
 
-![image](https://user-images.githubusercontent.com/60827480/117357285-0f10b980-aeb5-11eb-99ce-31095ead2913.png)
+
+![image](https://user-images.githubusercontent.com/60827480/117363726-42574680-aebd-11eb-9ffb-af78de35da95.png)
 
 
 ____________________________________________________________________________________________________________________________________________
