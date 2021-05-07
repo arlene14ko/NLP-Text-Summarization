@@ -10,7 +10,7 @@ ________________________________________________________________________________
 - Team challenge: `Solo project`
 - Type of challenge: `Learning`
 - Promotion : `AI Theano 2`
-- Team challenge: `Coding Bootcamp: Becode Artificial Intelligence (AI) Bootcamp`
+- Coding Bootcamp: `Becode Artificial Intelligence (AI) Bootcamp`
 
 ## Mission Objectives
 
