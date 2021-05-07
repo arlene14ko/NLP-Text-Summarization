@@ -80,7 +80,8 @@ ________________________________________________________________________________
 
       3. **summarize.html**
           - this is where the summary option is located
-          - it has a tab depending on the type file you want to summarize
+          - it has a tab depending on the type file you want to summarize:
+         
                   - Search tab - allows the user to search for a book from the Project Gutenberg ebooks and then an option to summarize that book
                   - Upload tab - allows the user to upload a txt file to summarize
                   - Text tab - allows the user to input a text and then it will summarize that text
